@@ -1,0 +1,33 @@
+5. Write a program to find the square of a number (1 to 10) using a look-up table.
+
+	AREA SQUARE, CODE, READONLY
+ENTRY                       ;Mark first instruction to execute
+START
+	LDR R0, =TABLE      ;Load start address of lookup table
+	MOV R1, #6	    ;Load the number whose square is to be find
+	MOV R1, R1, LSL #0X2;Generate address corresponding to square of given number
+	ADD R0, R0, R1      ;Load address of element in lookup table
+	LDR R3, [R0]	    ;Get square of given number in R3
+	XSS B XSS
+;Lookup table contains the Squares of numbers from 0 to 10(in Hex)
+	TABLE	DCD 0X00000000 ;Square of 0=0 in decimal
+		DCD 0X00000001 ;Square of 1=1 in decimal
+		DCD 0X00000004 ;Square of 2=4 in decimal
+		DCD 0X00000009 ;Square of 3=9 in decimal
+		DCD 0X00000010 ;Square of 4=16 in decimal
+		DCD 0X00000019 ;Square of 5=25 in decimal
+		DCD 0X00000024 ;Square of 6=36 in decimal
+		DCD 0X00000031 ;Square of 7=49 in decimal
+		DCD 0X00000040 ;Square of 8=64 in decimal
+		DCD 0X00000051 ;Square of 9=81 in decimal
+		DCD 0X00000064 ;Square of 10=100 in decimal
+	END ;Mark end of file
+
+
+Guidelines to write Output:
+1. Write the output of the program which you have executed in the lab.
+2. Write the values of all the registers that is used in the program 
+i.e in this program write the values of R0, R1, R3 and write CPSR
+value along with the flag values of CPSR.
+3. For this program write the memory window which contains the value.
+	

@@ -1,0 +1,28 @@
+2. Write a program to find the sum of the first 10 integer numbers.
+
+	AREA SUM, CODE, READONLY
+ENTRY
+START
+	MOV R5, #10
+	MOV R0, #0
+	MOV R1, #1
+LOOP
+	ADD R0, R0, R1
+	ADD R1, R1, #1
+	SUBS R5, R5, #1
+	CMP R5, #0
+	BNE LOOP
+	LDR R4, =RESULT
+	STR R0, [R4]
+XSS     B XSS
+	AREA DATA2, DATA, READWRITE
+RESULT DCD 0X0
+	END
+
+Guidelines to write Output:
+1. Write the output of the program which you have executed in the lab.
+2. Write the values of all the registers that is used in the program 
+i.e in this program write the values of R0, R1, R4, R5 and write CPSR
+value along with the flag values of CPSR.
+3. For this program write the memory window which contains the value.
+
